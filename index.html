@@ -21,6 +21,9 @@
     #play { padding:15px 30px; font-size:20px; background:#111; color:#fff; border:none; border-radius:10px; cursor:pointer; margin-bottom:20px; display:block; }
     #play:hover { background:#333; }
     #text { display:none; line-height:1.6; }
+    .foto-container { display:none; text-align:center; margin-bottom:20px; }
+    .foto-container img { max-width:100%; height:auto; border-radius:10px; }
+    .caption { font-style:italic; color:#555; margin-top:5px; }
     blockquote { margin-left:20px; font-style:italic; border-left:3px solid #ccc; padding-left:10px; margin:12px 0; }
   </style>
 </head>
@@ -28,74 +31,61 @@
 
   <div id="container">
     <button id="play">Mulai Baca</button>
-    
-<div class="foto-container" style="display:none; text-align:center; margin-bottom:20px;">
-  <img src="Foto01.jpg" alt="Foto01.jpg" style="max-width:100%; height:auto; border-radius:10px;">
-  <div class="caption" style="font-style:italic; color:#555; margin-top:5px;">25.06.25</div>
-</div>
-    
+
+    <!-- Foto -->
+    <div class="foto-container">
+      <img src="foto01.jpg" alt="Foto 1">
+      <div class="caption">_</div>
+    </div>
+
+    <!-- Teks panjang -->
     <div id="text">
       <p>Pernah gak…<br>baru dikritik dikit aja, langsung ngerasa gagal?</p>
-
       <p>Atau…<br>ada orang bilang “biasa aja kok”, tapi di hati rasanya kayak diserang?<br>
       Kayak ada pintu lama yang kebuka…<br>dan di baliknya ada kenangan yang gak pengen kamu lihat lagi.</p>
-
       <p>Mungkin ini bukan soal hari ini.<br>Mungkin ini… soal luka lama.<br>Luka yang gak pernah benar2 sembuh.</p>
-
       <p>Waktu kecil…<br>mungkin kamu sering dimarahin cuma gara2 nangis.<br>
       Dibilang cengeng, disuruh berhenti,<br>padahal hatimu cuma lagi nyari tempat aman.</p>
-
       <p>Atau dibentak hanya karena nanya hal sederhana,<br>sampe kamu mikir,</p>
       <blockquote>“Mungkin aku harus diem biar gak dimarahin.”</blockquote>
-
       <p>Atau dibanding2in sama orang lain,<br>sampe kamu percaya kalau kasih sayang itu harus diperjuangin pake kesempurnaan.</p>
-
       <p>Akhirnya…<br>kamu tumbuh dengan rasa waspada yang gak pernah pergi.<br>
       Setiap kata harus dipikir ulang.<br>
       Setiap gerak harus hati2.<br>
       Takut bikin salah, takut bikin kecewa, takut bikin marah.</p>
-
       <blockquote>
         “Aku harus hati2.”<br>
         “Aku harus jadi anak baik biar tdk disalahin.”<br>
         “Kalau aku salah, semua orang bakal marah.”
       </blockquote>
-
       <p>Dan sekarang…<br>tiap ada orang yang kritik kamu,<br>yang sebenernya cuma ngomong hal kecil,<br>
       hatimu langsung panas dingin.</p>
-
       <p>Karena yang kamu denger,<br>bukan cuma kata2 mereka,<br>
       tapi juga gema suara dari masa lalu…<br>
       suara yang pernah bikin kamu merasa kecil,<br>
       takut, gak berdaya, dan pengen ngilang.</p>
-
       <p>Itu lah yang orang sebut inner child.<br>
       Bagian kecil dalam dirimu…<br>
       yang dulu pernah terluka,<br>
       pernah ketakutan,<br>
       dan sampai sekarang masih nyimpen harapan untuk dimengerti.</p>
-
       <p>Inner child itu gak butuh kamu usir.<br>
       Gak butuh kamu diamkan.<br>
       Dia cuma butuh kamu peluk,<br>
       kamu tenangin,<br>
       dan kamu bisikin pelan:<br>“Sekarang aku di sini. Kamu aman.”</p>
-
       <p>Gak cuma kita yang punya inner child.<br>
       Orang lain juga punya.<br>
       Kadang, kamu ketemu seseorang yang gampang tersinggung,<br>
       gampang merasa diserang,<br>
       atau reaksinya keliatan berlebihan.</p>
-
       <p>Jangan buru2 ngecap dia baperan.<br>
       Jangan langsung ngehakimin dia “terlalu sensitif”.</p>
-
       <p>Kamu gak tau apa yang pernah dia lewati.<br>
       Mungkin, sebelum kamu kenal dia,<br>
       dia udah melewati ratusan malam di mana dia ngerasa sendirian.<br>
       Mungkin, kata2 kecil yang kamu ucapin,<br>
       bisa nyentuh luka yang dia simpan sejak lama.</p>
-
       <p>Kalo kamu nemuin itu…<br>
       jangan tambahin lukanya.<br>
       Jangan ikut nyakitin hatinya.<br>
@@ -104,12 +94,10 @@
       Kadang… perhatian kecil dari kita,<br>
       senyum tulus, atau sekadar “nggak apa2, aku ngerti kok”,<br>
       bisa jadi obat yang dia cari seumur hidup.</p>
-
       <p>Karena di balik sikap yang kadang susah dimengerti,<br>
       ada hati kecil yang cuma pengen ngerasa aman…<br>
       dan kalau kita mau sedikit lebih lembut,<br>
       mungkin… kita bisa jadi alasan dia percaya lagi sama kebaikan.:)</p>
-
     </div>
   </div>
 
@@ -119,11 +107,13 @@
     const btn = document.getElementById('play');
     const audio = document.getElementById('music');
     const text = document.getElementById('text');
+    const fotos = document.querySelectorAll('.foto-container'); // pilih semua foto
 
     btn.onclick = async () => {
       try {
         await audio.play();
         btn.style.display = 'none';
+        fotos.forEach(f => f.style.display = 'block'); // tampilkan foto
         text.style.display = 'block';
       } catch(e) {
         alert('Gagal memutar musik. Pastikan file musik ada di repository.');
