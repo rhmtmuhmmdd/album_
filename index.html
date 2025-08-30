@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Album Perjalanan</title>
+  <title>gabutajabang</title>
   <style>
     body, html {
       margin: 0;
@@ -21,9 +21,7 @@
       position: relative;
       background: #000;
     }
-    .active {
-      display: block;
-    }
+    .active { display: block; }
     .btn {
       padding: 12px 24px;
       border: none;
@@ -33,9 +31,7 @@
       font-size: 16px;
       cursor: pointer;
     }
-    .btn:hover {
-      background: #1976d2;
-    }
+    .btn:hover { background: #1976d2; }
     img {
       max-width: 90%;
       max-height: 70vh;
@@ -65,7 +61,6 @@
       text-align: center;
       color: #fff;
     }
-    /* Slide 1 khusus */
     #slide1 {
       background: #0d47a1;
       display: flex;
@@ -78,7 +73,7 @@
 
   <!-- Slide 1 -->
   <div class="slide active" id="slide1">
-    <button class="btn" onclick="openAlbum()">Buka Album</button>
+    <button class="btn" onclick="openAlbum()">Buka</button>
   </div>
 
   <!-- Slide 2 -->
@@ -158,10 +153,12 @@
     }
 
     function openAlbum() {
-      showSlide(2); // langsung ke slide 2
-      music.play().catch(err => {
-        console.log("Autoplay diblokir browser: ", err);
-      });
+      showSlide(2); // pindah slide dulu
+      setTimeout(() => {
+        music.play().catch(err => {
+          console.log("Autoplay diblokir browser: ", err);
+        });
+      }, 200);
     }
   </script>
 </body>
