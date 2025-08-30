@@ -7,161 +7,137 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: Arial, sans-serif;
-      background-color: #0d47a1;
+      background-color: #0a4db3;
       color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
     .slide {
       display: none;
-      text-align: center;
-      width: 80%;
-      max-width: 800px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
-    .active {
-      display: block;
+
+    .slide.active {
+      display: flex;
     }
-    img {
-      max-width: 90%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+
+    .slide img {
+      width: 200px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
+
     .caption {
-      font-size: 9px;
+      font-size: 11px;        /* lebih kecil dari sebelumnya */
       font-style: italic;
-      text-align: left;
+      text-align: center;     /* tengah */
       margin-top: 5px;
     }
+
     .text {
       font-size: 13px;
-      margin-top: 7px;
-      text-align: center;
+      margin-top: 5px;
+      text-align: center;     /* tengah */
     }
+
     .buttons {
-      margin-top: 15px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
+      margin-top: 20px;
     }
+
     button {
-      padding: 10px 20px;
+      padding: 10px 18px;
+      margin: 5px;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      border-radius: 10px;
       background-color: white;
-      color: #0d47a1;
+      color: #0a4db3;
       font-weight: bold;
+      cursor: pointer;
       transition: 0.3s;
     }
+
     button:hover {
-      background-color: #1976d2;
-      color: white;
+      background-color: #e0e0e0;
     }
-    .cover-btn {
+
+    .open-btn {
       margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .open-btn:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
-  <!-- Musik -->
-  <audio id="bg-music" src="musiksad03.mp3" loop></audio>
+  <div class="container">
+    <h1>Album Foto</h1>
 
-  <!-- Slide 1 (Cover) -->
-  <div class="slide active" id="slide1">
-    <h1>-</h1>
-    <button class="cover-btn" onclick="startAlbum()">Buka Album</button>
-  </div>
+    <div class="slide active">
+      <img src="https://picsum.photos/id/10/400/250" alt="Foto 1">
+      <div class="caption">Puncak Talung, 1810 Mdpl</div>
+      <div class="text">“Pengalaman bukan pada puncaknya, akan tetapi pada perjalanannya.”</div>
+    </div>
 
-  <!-- Slide 2–6 -->
-  <div class="slide" id="slide2">
-    <img src="foto1.jpg" alt="Foto 1">
-    <div class="caption">Puncak Talung, 1810Mdpl</div>
-    <div class="text">“Pengalaman bukan pada puncaknya, akan tetapi pada perjalananya.” yayaya</div>
+    <div class="slide">
+      <img src="https://picsum.photos/id/20/400/250" alt="Foto 2">
+      <div class="caption">Pantai Biru</div>
+      <div class="text">“Laut mengajarkan bahwa tenang bukan berarti tanpa ombak.”</div>
+    </div>
+
     <div class="buttons">
       <button onclick="prevSlide()">Kembali</button>
       <button onclick="nextSlide()">Lanjut</button>
     </div>
-  </div>
 
-  <div class="slide" id="slide3">
-    <img src="foto2.jpg" alt="Foto 2">
-    <div class="caption">Lembah Ramma, 1626Mdpl</div>
-    <div class="text">"Alam selalu menjadi tempat yang nyaman untuk menyembuhkan rasa lelah." (walaupun bikin pegal-pegal haha)</div>
-    <div class="buttons">
-      <button onclick="prevSlide()">Kembali</button>
-      <button onclick="nextSlide()">Lanjut</button>
-    </div>
-  </div>
-
-  <div class="slide" id="slide4">
-    <img src="foto3.jpg" alt="Foto 3">
-    <div class="caption">Danau Slank, 1376Mdpl</div>
-    <div class="text">“Alam adalah buku terbuka, hanya yang mau membaca akan mengerti maknanya.” azzeg haha</div>
-    <div class="buttons">
-      <button onclick="prevSlide()">Kembali</button>
-      <button onclick="nextSlide()">Lanjut</button>
-    </div>
-  </div>
-
-  <div class="slide" id="slide5">
-    <img src="foto4.jpg" alt="Foto 4">
-    <div class="caption">Danau Tanralili, 1454Mdpl</div>
-    <div class="text">"Dia-lah yang menjadikan bumi itu mudah bagi kamu, maka berjalanlah di segala penjurunya" <br> QS Al-Mulk:15</div>
-    <div class="buttons">
-      <button onclick="prevSlide()">Kembali</button>
-      <button onclick="nextSlide()">Lanjut</button>
-    </div>
-  </div>
-
-  <div class="slide" id="slide6">
-    <img src="foto5.jpg" alt="Foto 5">
-    <div class="caption">Lembah Lohe, 1927Mdpl</div>
-    <div class="text">tidak bisa ma berkata-kata😂</div>
-    <div class="buttons">
-      <button onclick="prevSlide()">Kembali</button>
-      <button onclick="nextSlide()">Lanjut</button>
-    </div>
-  </div>
-
-  <!-- Slide 7 (Penutup) -->
-  <div class="slide" id="slide7">
-    <div class="text">Next kemana?</div>
-    <div class="buttons">
-      <button onclick="prevSlide()">Kembali</button>
-    </div>
+    <button class="open-btn">Buka</button>
   </div>
 
   <script>
-    let currentSlide = 1;
-    const totalSlides = 7;
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
 
-    function showSlide(n) {
-      document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
-      document.getElementById('slide' + n).classList.add('active');
-      currentSlide = n;
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
     }
 
     function nextSlide() {
-      if (currentSlide < totalSlides) {
-        showSlide(currentSlide + 1);
-      }
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
     }
 
     function prevSlide() {
-      if (currentSlide > 1) {
-        showSlide(currentSlide - 1);
-      }
-    }
-
-    function startAlbum() {
-      const music = document.getElementById('bg-music');
-      music.play(); // musik mulai
-      showSlide(2); // langsung ke slide 2
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
     }
   </script>
 </body>
