@@ -2,137 +2,129 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>gabutajabang</title>
+  <title>Album Foto</title>
   <style>
     body, html {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
       height: 100%;
-      background: #0d47a1;
-      color: white;
-      overflow: hidden;
+      font-family: sans-serif;
+      background: #000;
+      color: #fff;
     }
     .slide {
       display: none;
-      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       height: 100vh;
       text-align: center;
-      position: relative;
-      background: #000;
     }
-    .active { display: block; }
-    .btn {
-      padding: 12px 24px;
-      border: none;
-      border-radius: 8px;
-      background: #1565c0;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    .btn:hover { background: #1976d2; }
+    .active { display: flex; }
     img {
       max-width: 90%;
-      max-height: 70vh;
-      margin-top: 20px;
-      border-radius: 10px;
+      border-radius: 12px;
+      margin-bottom: 10px;
     }
-    .caption-small {
-      position: absolute;
-      bottom: 60px;
-      left: 20px;
+    .ket {
       font-size: 8px;
-      color: #ddd;
+      text-align: left;
+      align-self: flex-start;
+      margin-left: 5%;
     }
-    .caption-main {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
+    .kata {
       font-size: 12px;
-      text-align: center;
+      margin-top: 10px;
+    }
+    .btn {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #1976d2;
       color: #fff;
+      cursor: pointer;
     }
-    .center-text {
-      position: absolute;
-      top: 40%;
-      width: 100%;
-      font-size: 18px;
-      text-align: center;
-      color: #fff;
-    }
-    #slide1 {
-      background: #0d47a1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    .btn:hover { background: #0d47a1; }
   </style>
 </head>
 <body>
 
+  <!-- Musik -->
+  <audio id="music" loop>
+    <source src="musiksad03.mp3" type="audio/mpeg">
+  </audio>
+
   <!-- Slide 1 -->
   <div class="slide active" id="slide1">
-    <button class="btn" onclick="openAlbum()">Buka</button>
+    <button class="btn" onclick="openAlbum()">Buka Album</button>
   </div>
 
   <!-- Slide 2 -->
   <div class="slide" id="slide2">
     <img src="foto1.jpg" alt="Foto 1">
-    <div class="caption-small">Puncak Talung, 1810Mdpl</div>
-    <div class="caption-main">“Pengalaman bukan pada puncaknya,akan tetapi pada perjalananya.” yayaya</div>
-    <button class="btn" onclick="prevSlide()">Kembali</button>
-    <button class="btn" onclick="nextSlide()">Lanjut</button>
+    <div class="ket">Puncak Talung, 1810Mdpl</div>
+    <div class="kata">“Pengalaman bukan pada puncaknya, akan tetapi pada perjalananya.” yayaya</div>
+    <div>
+      <button class="btn" onclick="prevSlide()">Kembali</button>
+      <button class="btn" onclick="nextSlide()">Lanjut</button>
+    </div>
   </div>
 
   <!-- Slide 3 -->
   <div class="slide" id="slide3">
     <img src="foto2.jpg" alt="Foto 2">
-    <div class="caption-small">Lembah Ramma, 1626Mdpl</div>
-    <div class="caption-main">"Alam selalu menjadi tempat yang nyaman untuk menyembuhkan rasa lelah." (walaupun bikin pegal-pegal haha)</div>
-    <button class="btn" onclick="prevSlide()">Kembali</button>
-    <button class="btn" onclick="nextSlide()">Lanjut</button>
+    <div class="ket">Lembah Ramma, 1626Mdpl</div>
+    <div class="kata">"Alam selalu menjadi tempat yang nyaman untuk menyembuhkan rasa lelah." (walaupun bikin pegal-pegal haha)</div>
+    <div>
+      <button class="btn" onclick="prevSlide()">Kembali</button>
+      <button class="btn" onclick="nextSlide()">Lanjut</button>
+    </div>
   </div>
 
   <!-- Slide 4 -->
   <div class="slide" id="slide4">
     <img src="foto3.jpg" alt="Foto 3">
-    <div class="caption-small">Danau Slank, 1376Mdpl</div>
-    <div class="caption-main">“Alam adalah buku terbuka, hanya yang mau membaca akan mengerti maknanya.” azzeg haha</div>
-    <button class="btn" onclick="prevSlide()">Kembali</button>
-    <button class="btn" onclick="nextSlide()">Lanjut</button>
+    <div class="ket">Danau Slank, 1376Mdpl</div>
+    <div class="kata">“Alam adalah buku terbuka, hanya yang mau membaca akan mengerti maknanya.” azzeg haha</div>
+    <div>
+      <button class="btn" onclick="prevSlide()">Kembali</button>
+      <button class="btn" onclick="nextSlide()">Lanjut</button>
+    </div>
   </div>
 
   <!-- Slide 5 -->
   <div class="slide" id="slide5">
     <img src="foto4.jpg" alt="Foto 4">
-    <div class="caption-small">Danau Tanralili</div>
-    <div class="caption-main">"Dia-lah yang menjadikan bumi itu mudah bagi kamu, maka berjalanlah di segala penjurunya" <br> QS Al-Mulk:15</div>
-    <button class="btn" onclick="prevSlide()">Kembali</button>
-    <button class="btn" onclick="nextSlide()">Lanjut</button>
+    <div class="ket">Danau Tanralili</div>
+    <div class="kata">"Dia-lah yang menjadikan bumi itu mudah bagi kamu, maka berjalanlah di segala penjurunya"<br>QS Al-Mulk:15</div>
+    <div>
+      <button class="btn" onclick="prevSlide()">Kembali</button>
+      <button class="btn" onclick="nextSlide()">Lanjut</button>
+    </div>
   </div>
 
   <!-- Slide 6 -->
   <div class="slide" id="slide6">
     <img src="foto5.jpg" alt="Foto 5">
-    <div class="caption-small">Lembah Lohe</div>
-    <div class="caption-main">tidak bisa ma berkata-kata😂</div>
-    <button class="btn" onclick="prevSlide()">Kembali</button>
-    <button class="btn" onclick="nextSlide()">Lanjut</button>
+    <div class="ket">Lembah Lohe</div>
+    <div class="kata">tidak bisa ma berkata-kata😂</div>
+    <div>
+      <button class="btn" onclick="prevSlide()">Kembali</button>
+      <button class="btn" onclick="nextSlide()">Lanjut</button>
+    </div>
   </div>
 
   <!-- Slide 7 -->
   <div class="slide" id="slide7">
-    <div class="center-text">next kemana?</div>
+    <div class="kata">next kemana?</div>
     <button class="btn" onclick="prevSlide()">Kembali</button>
   </div>
-
-  <audio id="bg-music" src="musiksad03.mp3" loop></audio>
 
   <script>
     let currentSlide = 1;
     const totalSlides = 7;
-    const music = document.getElementById("bg-music");
+    const music = document.getElementById("music");
 
     function showSlide(n) {
       document.querySelectorAll(".slide").forEach(s => s.classList.remove("active"));
@@ -153,13 +145,12 @@
     }
 
     function openAlbum() {
-      showSlide(2); // pindah slide dulu
-      setTimeout(() => {
-        music.play().catch(err => {
-          console.log("Autoplay diblokir browser: ", err);
-        });
-      }, 200);
+      showSlide(2); // langsung pindah ke slide 2
+      music.play().catch(err => {
+        console.log("Autoplay diblokir, user harus interaksi: ", err);
+      });
     }
   </script>
+
 </body>
 </html>
