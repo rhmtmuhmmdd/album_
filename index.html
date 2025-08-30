@@ -2,122 +2,159 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Album Kenangan</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+  <title>gabutbro</title>
   <style>
-    body {
-      background: linear-gradient(135deg, #004AAD, #1E90FF);
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: 100%;
+      overflow: hidden;
+      background: #0d47a1; /* biru elegan untuk slide 1 */
+      color: white;
     }
-    .swiper {
+    .slide {
+      display: none;
       width: 100%;
       height: 100vh;
+      text-align: center;
+      position: relative;
+      background: #000;
+    }
+    .active {
+      display: block;
+    }
+    .btn {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 6px;
+      background: #1565c0;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #1976d2;
+    }
+    img {
+      max-width: 90%;
+      max-height: 70vh;
+      margin-top: 20px;
+    }
+    .caption-small {
+      position: absolute;
+      bottom: 60px;
+      left: 20px;
+      font-size: 8px;
+      color: #ddd;
+    }
+    .caption-main {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      font-size: 12px;
+      text-align: center;
+      color: #fff;
+    }
+    .center-text {
+      position: absolute;
+      top: 40%;
+      width: 100%;
+      font-size: 16px;
+      text-align: center;
+      color: #fff;
     }
   </style>
 </head>
-<body class="flex items-center justify-center text-white">
+<body>
 
-  <!-- Musik -->
-  <audio id="bg-music" autoplay loop>
-    <source src="musik.mp3" type="audio/mpeg">
-  </audio>
-  <script>
-    document.addEventListener("click", () => {
-      document.getElementById("bg-music").play();
-    });
-  </script>
-
-  <!-- Swiper -->
-  <div class="swiper">
-    <div class="swiper-wrapper">
-
-      <!-- Cover -->
-      <div class="swiper-slide flex flex-col items-center justify-center text-center">
-        <h1 class="text-3xl font-bold mb-4">Album Kenangan</h1>
-        <button onclick="swiper.slideNext()" class="px-6 py-3 bg-white text-blue-600 font-semibold rounded-xl shadow-lg">Buka Album</button>
-      </div>
-
-      <!-- Slide 2 -->
-      <div class="swiper-slide flex flex-col items-center justify-center">
-        <div class="flex flex-col items-center">
-          <img src="foto1.jpg" alt="Foto 1" class="max-w-[90%] rounded-xl shadow-lg">
-          <p class="text-xs italic self-start ml-[5%] mt-2">Keterangan foto 1</p>
-          <p class="text-base text-center mt-1 max-w-[90%]">Kata-kata untuk foto 1</p>
-          <div class="flex gap-4 mt-4">
-            <button onclick="swiper.slidePrev()" class="px-4 py-2 bg-white text-blue-600 rounded-lg">Kembali</button>
-            <button onclick="swiper.slideNext()" class="px-4 py-2 bg-white text-blue-600 rounded-lg">Lanjut</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 3 -->
-      <div class="swiper-slide flex flex-col items-center justify-center">
-        <div class="flex flex-col items-center">
-          <img src="foto2.jpg" alt="Foto 2" class="max-w-[90%] rounded-xl shadow-lg">
-          <p class="text-xs italic self-start ml-[5%] mt-2">Keterangan foto 2</p>
-          <p class="text-base text-center mt-1 max-w-[90%]">Kata-kata untuk foto 2</p>
-          <div class="flex gap-4 mt-4">
-            <button onclick="swiper.slidePrev()" class="px-4 py-2 bg-white text-blue-600 rounded-lg">Kembali</button>
-            <button onclick="swiper.slideNext()" class="px-4 py-2 bg-white text-blue-600 rounded-lg">Lanjut</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 4 -->
-      <div class="swiper-slide flex flex-col items-center justify-center">
-        <div class="flex flex-col items-center">
-          <img src="foto3.jpg" alt="Foto 3" class="max-w-[90%] rounded-xl shadow-lg">
-          <p class="text-xs italic self-start ml-[5%] mt-2">Keterangan foto 3</p>
-          <p class="text-base text-center mt-1 max-w-[90%]">Kata-kata untuk foto 3</p>
-          <div class="flex gap-4 mt-4">
-            <button onclick="swiper.slidePrev()" class="px-4 py-2 bg-white text-blue-600 rounded-lg">Kembali</button>
-            <button onclick="swiper.slideNext()" class="px-4 py-2 bg-white text-blue-600 rounded-lg">Lanjut</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 5 -->
-      <div class="swiper-slide flex flex-col items-center justify-center">
-        <div class="flex flex-col items-center">
-          <img src="foto4.jpg" alt="Foto 4" class="max-w-[90%] rounded-xl shadow-lg">
-          <p class="text-xs italic self-start ml-[5%] mt-2">Keterangan foto 4</p>
-          <p class="text-base text-center mt-1 max-w-[90%]">Kata-kata untuk foto 4</p>
-          <div class="flex gap-4 mt-4">
-            <button onclick="swiper.slidePrev()" class="px-4 py-2 bg-white text-blue-600 rounded-lg">Kembali</button>
-            <button onclick="swiper.slideNext()" class="px-4 py-2 bg-white text-blue-600 rounded-lg">Lanjut</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 6 -->
-      <div class="swiper-slide flex flex-col items-center justify-center">
-        <div class="flex flex-col items-center">
-          <img src="foto5.jpg" alt="Foto 5" class="max-w-[90%] rounded-xl shadow-lg">
-          <p class="text-xs italic self-start ml-[5%] mt-2">Keterangan foto 5</p>
-          <p class="text-base text-center mt-1 max-w-[90%]">Kata-kata untuk foto 5</p>
-          <div class="flex gap-4 mt-4">
-            <button onclick="swiper.slidePrev()" class="px-4 py-2 bg-white text-blue-600 rounded-lg">Kembali</button>
-            <button onclick="swiper.slideNext()" class="px-4 py-2 bg-white text-blue-600 rounded-lg">Lanjut</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 7 (Penutup) -->
-      <div class="swiper-slide flex flex-col items-center justify-center text-center">
-        <p class="text-2xl font-semibold max-w-[90%]">[Teks penutup nanti kamu ganti sendiri]</p>
-      </div>
-
-    </div>
+  <!-- Slide 1 -->
+  <div class="slide active" id="slide1" style="background:#0d47a1;display:flex;justify-content:center;align-items:center;flex-direction:column;">
+    <h1>Album</h1>
+    <button class="btn" onclick="openAlbum()">Buka</button>
   </div>
 
-  <script>
-    const swiper = new Swiper('.swiper', {
-      allowTouchMove: false,
-      effect: "slide",
-    });
-  </script>
+  <!-- Slide 2 -->
+  <div class="slide" id="slide2">
+    <img src="foto1.jpg" alt="Foto 1">
+    <div class="caption-small">Puncak Talung, 1810Mdpl</div>
+    <div class="caption-main">“Pengalaman bukan pada puncaknya,akan tetapi pada perjalananya.” yayaya</div>
+    <button class="btn" onclick="prevSlide()">Kembali</button>
+    <button class="btn" onclick="nextSlide()">Lanjut</button>
+  </div>
 
+  <!-- Slide 3 -->
+  <div class="slide" id="slide3">
+    <img src="foto2.jpg" alt="Foto 2">
+    <div class="caption-small">Lembah Ramma, 1626Mdpl</div>
+    <div class="caption-main">"Alam selalu menjadi tempat yang nyaman untuk menyembuhkan rasa lelah." (walaupun bikin pegal-pegal haha)</div>
+    <button class="btn" onclick="prevSlide()">Kembali</button>
+    <button class="btn" onclick="nextSlide()">Lanjut</button>
+  </div>
+
+  <!-- Slide 4 -->
+  <div class="slide" id="slide4">
+    <img src="foto3.jpg" alt="Foto 3">
+    <div class="caption-small">Danau Slank, 1376Mdpl</div>
+    <div class="caption-main">“Alam adalah buku terbuka, hanya yang mau membaca akan mengerti maknanya.” azzeg haha</div>
+    <button class="btn" onclick="prevSlide()">Kembali</button>
+    <button class="btn" onclick="nextSlide()">Lanjut</button>
+  </div>
+
+  <!-- Slide 5 -->
+  <div class="slide" id="slide5">
+    <img src="foto4.jpg" alt="Foto 4">
+    <div class="caption-small">Danau Tanralili</div>
+    <div class="caption-main">"Dia-lah yang menjadikan bumi itu mudah bagi kamu, maka berjalanlah di segala penjurunya" <br> QS Al-Mulk:15</div>
+    <button class="btn" onclick="prevSlide()">Kembali</button>
+    <button class="btn" onclick="nextSlide()">Lanjut</button>
+  </div>
+
+  <!-- Slide 6 -->
+  <div class="slide" id="slide6">
+    <img src="foto5.jpg" alt="Foto 5">
+    <div class="caption-small">Lembah Lohe</div>
+    <div class="caption-main">tidak bisa ma berkata-kata😂</div>
+    <button class="btn" onclick="prevSlide()">Kembali</button>
+    <button class="btn" onclick="nextSlide()">Lanjut</button>
+  </div>
+
+  <!-- Slide 7 -->
+  <div class="slide" id="slide7">
+    <div class="center-text">next kemana?</div>
+    <button class="btn" onclick="prevSlide()">Kembali</button>
+  </div>
+
+  <audio id="bg-music" src="musiksad03.mp3" loop></audio>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 7;
+    const music = document.getElementById("bg-music");
+
+    function showSlide(n) {
+      document.querySelectorAll(".slide").forEach(s => s.classList.remove("active"));
+      document.getElementById("slide" + n).classList.add("active");
+      currentSlide = n;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        showSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        showSlide(currentSlide - 1);
+      }
+    }
+
+    function openAlbum() {
+      showSlide(2);
+      music.play();
+    }
+  </script>
 </body>
 </html>
