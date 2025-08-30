@@ -61,12 +61,36 @@
     </div>
   </div>
 
-  <!-- Slide 5: Next? -->
+ <!-- Slide 5: Foto 4 -->
   <div class="slide hidden" id="slide5">
+    <img src="foto4.jpg" alt="Foto 4">
+    <div class="caption">Danau Tanralili, 23 08 25</div>
+    <div class="text">_</div>
+    <div class="small-italic">-1454mdpl-</div>
+    <div class="btn-container">
+      <button id="prev5">Kembali</button>
+      <button id="next5">Lanjut</button>
+    </div>
+  </div>
+  
+  <!-- Slide 6: Foto 5 -->
+  <div class="slide hidden" id="slide6">
+    <img src="foto5.jpg" alt="Foto 5">
+    <div class="caption"> Lembah Lohe, 23 08 25</div>
+    <div class="text">_</div>
+    <div class="small-italic">-1917mdpl-</div>
+    <div class="btn-container">
+      <button id="prev6">Kembali</button>
+      <button id="next6">Lanjut</button>
+    </div>
+  </div>
+  
+  <!-- Slide 7: Next? -->
+  <div class="slide hidden" id="slide7">
     <div class="text">next?</div>
     <div class="small-italic">nanti kita isi lagi :)</div>
     <div class="btn-container">
-      <button id="prev5">Kembali</button>
+      <button id="prev7">Kembali</button>
     </div>
   </div>
 
@@ -94,7 +118,13 @@
     document.getElementById('next4').onclick = () => { slides[3].classList.add('hidden'); slides[4].classList.remove('hidden'); }
     document.getElementById('prev4').onclick = () => { slides[3].classList.add('hidden'); slides[2].classList.remove('hidden'); }
 
+    document.getElementById('next5').onclick = () => { slides[4].classList.add('hidden'); slides[5].classList.remove('hidden'); }
     document.getElementById('prev5').onclick = () => { slides[4].classList.add('hidden'); slides[3].classList.remove('hidden'); }
+    
+    document.getElementById('next6').onclick = () => { slides[5].classList.add('hidden'); slides[6].classList.remove('hidden'); }
+    document.getElementById('prev6').onclick = () => { slides[5].classList.add('hidden'); slides[4].classList.remove('hidden'); }
+    
+    document.getElementById('prev7').onclick = () => { slides[6].classList.add('hidden'); slides[5].classList.remove('hidden'); }
 
   </script>
 
