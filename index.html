@@ -2,135 +2,127 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Album Foto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gabutskliaih</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #111;
+      background-color: #0d47a1; /* biru elegan */
       color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      text-align: center;
     }
-
     .container {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
+      width: 90%;
+      max-width: 600px;
     }
-
     .slide {
       display: none;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      height: 100%;
+      justify-content: center;
     }
-
-    .active {
+    .slide.active {
       display: flex;
     }
-
     img {
-      max-width: 90%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+      width: 90%;
+      max-width: 500px;
+      border-radius: 12px;
+      margin-bottom: 10px;
     }
-
     .caption {
-      font-size: 8px; /* lebih kecil dari sebelumnya */
-      margin-top: 6px;
+      font-size: 7px; /* lebih kecil */
       font-style: italic;
+      margin-top: 5px;
       text-align: center;
     }
-
     .text {
-      font-size: 13px;
-      margin-top: 8px;
+      font-size: 12px;
+      margin-top: 10px;
       text-align: center;
     }
-
     .buttons {
-      margin-top: 15px;
+      margin-top: 20px;
     }
-
     button {
-      padding: 8px 16px;
-      margin: 0 6px;
-      font-size: 14px;
+      background-color: white;
+      color: #0d47a1;
       border: none;
+      padding: 8px 16px;
+      margin: 5px;
       border-radius: 8px;
+      font-size: 14px;
       cursor: pointer;
-      background-color: #3498db;
-      color: white;
-      transition: 0.3s;
     }
-
     button:hover {
-      background-color: #2980b9;
+      background-color: #f0f0f0;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Slide 1: Tombol buka album -->
+
+    <!-- Slide 1 (Pembuka) -->
     <div class="slide active">
-      <button onclick="startAlbum()">Buka Album</button>
+      <h1>Akses Wifi Gratis</h1>
+      <div class="buttons">
+        <button onclick="startAlbum()">Buka</button>
+      </div>
     </div>
 
-    <!-- Slide 2: Foto 1 -->
+    <!-- Slide 2 (Foto 1) -->
     <div class="slide">
       <img src="foto1.jpg" alt="Foto 1">
-      <div class="caption">Puncak Talung, 1810Mdpl</div>
-      <div class="text">“Pengalaman bukan pada puncaknya, akan tetapi pada perjalananya.” yayaya</div>
+      <div class="caption">1810Mdpl - 25 97 25</div>
+      <div class="text">“Pengalaman bukan pada puncaknya, akan tetapi pada perjalananya.” azzeg</div>
       <div class="buttons">
         <button onclick="prevSlide()">Kembali</button>
         <button onclick="nextSlide()">Lanjut</button>
       </div>
     </div>
 
-    <!-- Slide 3: Foto 2 -->
+    <!-- Slide 3 (Foto 2) -->
     <div class="slide">
       <img src="foto2.jpg" alt="Foto 2">
-      <div class="caption">Lembah Ramma, 1626Mdpl</div>
-      <div class="text">"Alam selalu menjadi tempat yang nyaman untuk menyembuhkan rasa lelah." (walaupun bikin pegal-pegal haha)</div>
+      <div class="caption">1626Mdpl - 25 07 25</div>
+      <div class="text">"Alam selalu menjadi tempat yang nyaman untuk menyembuhkan rasa lelah." (walaupun sedikit bikin pegal🗿🤏)</div>
       <div class="buttons">
         <button onclick="prevSlide()">Kembali</button>
         <button onclick="nextSlide()">Lanjut</button>
       </div>
     </div>
 
-    <!-- Slide 4: Foto 3 -->
+    <!-- Slide 4 (Foto 3) -->
     <div class="slide">
       <img src="foto3.jpg" alt="Foto 3">
-      <div class="caption">Danau Slank, 1376Mdpl</div>
-      <div class="text">“Alam adalah buku terbuka, hanya yang mau membaca akan mengerti maknanya.” azzeg haha</div>
+      <div class="caption">1376Mdpl - 25 07 25</div>
+      <div class="text">“Masa muda cuman sekali, dan lebih milih rebahan? yakin?🗿</div>
       <div class="buttons">
         <button onclick="prevSlide()">Kembali</button>
         <button onclick="nextSlide()">Lanjut</button>
       </div>
     </div>
 
-    <!-- Slide 5: Foto 4 -->
+    <!-- Slide 5 (Foto 4) -->
     <div class="slide">
       <img src="foto4.jpg" alt="Foto 4">
-      <div class="caption">Danau Tanralili, 1454Mdpl</div>
-      <div class="text">"Dia-lah yang menjadikan bumi itu mudah bagi kamu, maka berjalanlah di segala penjurunya" <br> QS Al-Mulk:15</div>
+      <div class="caption">1454Mdpl - 23 08 25</div>
+      <div class="text">"Dia-lah yang menjadikan bumi itu mudah bagi kamu, maka berjalanlah di segala penjurunya" <br> (QS Al-Mulk:15)</div>
       <div class="buttons">
         <button onclick="prevSlide()">Kembali</button>
         <button onclick="nextSlide()">Lanjut</button>
       </div>
     </div>
 
-    <!-- Slide 6: Foto 5 -->
+    <!-- Slide 6 (Foto 5) -->
     <div class="slide">
       <img src="foto5.jpg" alt="Foto 5">
-      <div class="caption">Lembah Lohe, 1917Mdpl</div>
+      <div class="caption">1917Mdpl - 23 08 25</div>
       <div class="text">tidak bisa ma berkata-kata😂</div>
       <div class="buttons">
         <button onclick="prevSlide()">Kembali</button>
@@ -138,10 +130,10 @@
       </div>
     </div>
 
-    <!-- Slide 7: Foto 6 -->
+    <!-- Slide 7 (Foto 6) -->
     <div class="slide">
       <img src="foto6.jpg" alt="Foto 6">
-      <div class="caption">Bulu Bialo, 2366Mdpl</div>
+      <div class="caption">1366Mdpl - 31 08 25</div>
       <div class="text">Gonggongan anjing tak akan membahayakan awan🗿</div>
       <div class="buttons">
         <button onclick="prevSlide()">Kembali</button>
@@ -149,9 +141,9 @@
       </div>
     </div>
 
-    <!-- Slide 8: Penutup -->
+    <!-- Slide 8 (Penutup) -->
     <div class="slide">
-      <div class="text">next kemana?</div>
+      <div class="text">next kmna?</div>
       <div class="buttons">
         <button onclick="prevSlide()">Kembali</button>
       </div>
@@ -159,32 +151,36 @@
   </div>
 
   <!-- Musik -->
-  <audio id="bg-music" loop>
-    <source src="musiksad03.mp3" type="audio/mpeg">
-  </audio>
+  <audio id="bgm" src="musiksad03.mp3" loop></audio>
 
   <script>
     let currentSlide = 0;
-    const slides = document.querySelectorAll(".slide");
-    const music = document.getElementById("bg-music");
+    const slides = document.querySelectorAll('.slide');
+    const bgm = document.getElementById("bgm");
 
     function showSlide(index) {
-      slides[currentSlide].classList.remove("active");
-      currentSlide = (index + slides.length) % slides.length;
-      slides[currentSlide].classList.add("active");
-    }
-
-    function nextSlide() {
-      showSlide(currentSlide + 1);
-    }
-
-    function prevSlide() {
-      showSlide(currentSlide - 1);
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
     }
 
     function startAlbum() {
-      music.play();
-      nextSlide(); // langsung ke slide foto pertama
+      currentSlide = 1; // langsung ke slide foto pertama
+      showSlide(currentSlide);
+      bgm.play();
+    }
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        showSlide(currentSlide);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) { // supaya ga balik ke slide pembuka
+        currentSlide--;
+        showSlide(currentSlide);
+      }
     }
   </script>
 </body>
