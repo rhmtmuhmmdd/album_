@@ -141,7 +141,18 @@
       </div>
     </div>
 
-    <!-- Slide 8 (Penutup) -->
+    <!-- Slide 8 (Foto 7)  <-- NEW: tambahan slide foto ke-7 -->
+    <div class="slide">
+      <img src="foto7.jpg" alt="Foto 7">
+      <div class="caption">[keterangan foto 7]</div>
+      <div class="text">[kata-kata untuk foto 7]</div>
+      <div class="buttons">
+        <button onclick="prevSlide()">Kembali</button>
+        <button onclick="nextSlide()">Lanjut</button>
+      </div>
+    </div>
+
+    <!-- Slide 9 (Penutup) -->
     <div class="slide">
       <div class="text">mampir pula kau bro?🥱</div>
       <div class="buttons">
@@ -166,7 +177,7 @@
     function startAlbum() {
       currentSlide = 1; // langsung ke slide foto pertama
       showSlide(currentSlide);
-      bgm.play();
+      bgm.play().catch(() => {}); // mulai musik setelah klik (suppress errors)
     }
 
     function nextSlide() {
