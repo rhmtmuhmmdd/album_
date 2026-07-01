@@ -1329,280 +1329,254 @@ a { text-decoration: none; }
 }
 
 /* =============================================
-   GALLERY 2 SECTION — Professional Photo Gallery
+   GALLERY 2 SECTION — 3D Destination Showcase
    ============================================= */
 #section-gallery2 {
   padding-top: 64px;
-  background: var(--bg);
-  min-height: calc(100vh - 64px - 56px);
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(77,171,247,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 100% 100%, rgba(26,95,180,0.08) 0%, transparent 60%),
+    var(--bg);
+  min-height: 100vh;
 }
 
-.gallery2-hero {
+.g2-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  padding: clamp(40px,6vw,80px) clamp(18px,5vw,60px) clamp(30px,4vw,50px);
+  padding: clamp(40px,7vw,72px) clamp(20px,6vw,60px) clamp(28px,4vw,40px);
+  perspective: 1200px;
 }
 
-.gallery2-hero .eyebrow {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.34em;
+.g2-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.42em;
   text-transform: uppercase;
   color: var(--accent2);
-  margin-bottom: 14px;
-  display: block;
+  margin-bottom: 16px;
+  opacity: 0.85;
 }
 
-.gallery2-hero h2 {
+.g2-headline {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  font-size: clamp(2.4rem, 7vw, 4.6rem);
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 10px;
-  word-break: break-word;
+  line-height: 1.02;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  transform-style: preserve-3d;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.4), 0 14px 32px rgba(26,95,180,0.22);
 }
 
-.gallery2-hero p {
-  font-size: clamp(13px, 1.9vw, 15px);
+body.dark .g2-headline {
+  text-shadow: 0 1px 0 rgba(255,255,255,0.05), 0 14px 40px rgba(0,0,0,0.55);
+}
+
+.g2-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(13px, 1.9vw, 15.5px);
   color: var(--text2);
-  max-width: 520px;
-  margin: 0 auto;
+  max-width: 480px;
   line-height: 1.75;
+  font-weight: 300;
 }
 
-/* Destination Buttons Grid */
-.gallery2-dest-grid {
+/* Button grid — all destinations */
+.g2-grid-wrap {
+  padding: 0 clamp(16px,5vw,60px) clamp(60px,8vw,100px);
+}
+
+.g2-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 12px;
-  max-width: 900px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: clamp(12px,2vw,18px);
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 clamp(18px,5vw,60px) clamp(30px,4vw,50px);
 }
 
-.g2-dest-btn {
+.g2-btn {
   position: relative;
-  padding: 16px 20px;
-  background: var(--card-bg);
-  border: 1.5px solid var(--border);
-  border-radius: 12px;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  padding: 20px 14px 18px;
+  border-radius: 14px;
+  background: linear-gradient(160deg, var(--card-bg) 0%, var(--bg2) 130%);
+  border: 1px solid var(--border);
   color: var(--text);
   font-family: 'DM Sans', sans-serif;
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-  text-align: center;
+  letter-spacing: 0.01em;
+  text-align: left;
+  line-height: 1.35;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.5) inset,
+    0 10px 22px rgba(13,27,46,0.08),
+    0 2px 0 rgba(13,27,46,0.03);
+  transform: translateY(0) rotateX(0deg);
+  transform-style: preserve-3d;
+  transition: transform 0.28s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.28s, border-color 0.28s;
   overflow: hidden;
-  box-shadow: var(--card-shadow);
 }
 
-.g2-dest-btn::before {
+body.dark .g2-btn {
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.04) inset,
+    0 10px 26px rgba(0,0,0,0.45),
+    0 2px 0 rgba(0,0,0,0.2);
+}
+
+.g2-btn::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  background: linear-gradient(120deg, rgba(77,171,247,0.16) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.3s;
-  z-index: 0;
+  pointer-events: none;
 }
 
-.g2-dest-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(26,95,180,0.18);
-  border-color: var(--accent);
+.g2-btn:hover {
+  transform: translateY(-6px) rotateX(4deg) scale(1.02);
+  border-color: var(--accent2);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.5) inset,
+    0 22px 34px rgba(26,95,180,0.22),
+    0 4px 0 rgba(26,95,180,0.08);
 }
 
-.g2-dest-btn:hover::before { opacity: 0.08; }
+.g2-btn:hover::before { opacity: 1; }
 
-.g2-dest-btn.active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(26,95,180,0.35);
+.g2-btn:active {
+  transform: translateY(-1px) scale(0.99);
 }
 
-.g2-dest-btn.active::before { opacity: 0; }
+.g2-btn-icon {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
 
-.g2-dest-btn > span {
+.g2-btn-name {
   position: relative;
   z-index: 1;
-}
-
-/* Gallery Viewer Panel */
-.gallery2-viewer {
-  display: none;
-  max-width: 900px;
-  margin: 0 auto clamp(40px,5vw,70px);
-  padding: 0 clamp(18px,5vw,60px);
-  animation: fadeUp 0.5s ease both;
-}
-
-.gallery2-viewer.show { display: block; }
-
-.g2-viewer-inner {
-  background: var(--card-bg);
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  box-shadow: var(--card-shadow);
-  overflow: hidden;
-  transition: background 0.35s;
-}
-
-.g2-viewer-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 24px;
-  border-bottom: 1px solid var(--border);
-}
-
-.g2-viewer-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.3rem, 3vw, 1.8rem);
-  font-weight: 700;
-  color: var(--text);
-}
-
-.g2-viewer-close {
-  background: none;
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
-  padding: 6px 14px;
-  color: var(--text2);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s;
-}
-
-.g2-viewer-close:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.g2-viewer-body {
-  padding: 24px;
-}
-
-.g2-main-img-wrap {
-  position: relative;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #050a05;
-  margin-bottom: 18px;
-}
-
-.g2-main-img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
   display: block;
-  cursor: zoom-in;
-  transition: opacity 0.35s ease;
 }
 
-.g2-main-img.fading { opacity: 0; }
+.g2-btn-loc {
+  display: block;
+  margin-top: 6px;
+  font-size: 10.5px;
+  font-weight: 400;
+  color: var(--text2);
+  opacity: 0.75;
+  letter-spacing: 0.01em;
+}
 
-.g2-viewer-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.55);
-  border: none;
-  color: #fff;
-  font-size: 22px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 5;
-  transition: background 0.2s;
-  display: flex;
+/* 3D Photo viewer overlay */
+.g2-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 2100;
+  display: none;
   align-items: center;
   justify-content: center;
+  padding: 24px;
+  background: rgba(4,10,20,0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  perspective: 1400px;
 }
 
-.g2-viewer-nav:hover { background: rgba(0,0,0,0.85); }
-.g2-viewer-nav.prev { left: 14px; }
-.g2-viewer-nav.next { right: 14px; }
-
-.g2-viewer-counter {
-  position: absolute;
-  bottom: 14px;
-  right: 16px;
-  background: rgba(0,0,0,0.55);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 5px 14px;
-  border-radius: 20px;
-  letter-spacing: 0.04em;
-}
-
-.g2-thumbs-row {
+.g2-viewer.show {
   display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding-bottom: 4px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent) transparent;
+  animation: g2FadeIn 0.3s ease;
 }
 
-.g2-thumbs-row::-webkit-scrollbar { height: 3px; }
-.g2-thumbs-row::-webkit-scrollbar-track { background: transparent; }
-.g2-thumbs-row::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+@keyframes g2FadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 
-.g2-thumb {
-  flex: 0 0 80px;
-  height: 56px;
-  border-radius: 8px;
+.g2-viewer-card {
+  position: relative;
+  max-width: min(560px, 92vw);
+  width: 100%;
+  background: var(--card-bg);
+  border-radius: 20px;
   overflow: hidden;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: all 0.25s;
-  opacity: 0.6;
+  border: 1px solid rgba(77,171,247,0.25);
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.5),
+    0 1px 0 rgba(255,255,255,0.15) inset;
+  transform: rotateY(0deg) scale(0.94);
+  animation: g2CardPop 0.42s cubic-bezier(0.2,0.9,0.25,1) forwards;
 }
 
-.g2-thumb img {
+@keyframes g2CardPop {
+  0%   { transform: rotateY(-14deg) scale(0.88); opacity: 0; }
+  100% { transform: rotateY(0deg) scale(1); opacity: 1; }
+}
+
+.g2-viewer-photo-wrap {
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  background: #05101f;
+}
+
+.g2-viewer-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.g2-thumb:hover { opacity: 0.9; }
-.g2-thumb.active {
-  border-color: var(--accent);
-  opacity: 1;
-  box-shadow: 0 4px 12px rgba(26,95,180,0.25);
+  display: block;
 }
 
 .g2-viewer-info {
-  margin-top: 18px;
+  padding: 18px 22px 22px;
 }
 
-.g2-viewer-info h4 {
+.g2-viewer-name {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
-.g2-viewer-info p {
-  font-size: 13px;
+.g2-viewer-loc {
+  font-size: 12px;
   color: var(--text2);
-  line-height: 1.7;
+  letter-spacing: 0.03em;
 }
 
-/* Empty state */
-.gallery2-empty {
-  text-align: center;
-  padding: clamp(40px,6vw,80px) clamp(18px,5vw,60px);
-  color: var(--text2);
-  font-size: 14px;
+.g2-viewer-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(4,10,20,0.55);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.g2-viewer-close:hover {
+  background: rgba(26,95,180,0.85);
+  transform: rotate(90deg);
 }
 
 /* =============================================
@@ -1889,7 +1863,7 @@ a { text-decoration: none; }
     </li>
     <li>
       <a href="javascript:void(0)" onclick="navigateTo('gallery2')" id="nav-gallery2">
-        <img src="icongallery.png" alt=""> Gallery 2
+        <img src="galeri2icon.png" alt=""> Galeri Kedua
       </a>
     </li>
   </ul>
@@ -2079,8 +2053,8 @@ a { text-decoration: none; }
           <textarea id="c-message" placeholder="Tulis pesanmu di sini..."></textarea>
         </div>
         <div class="form-buttons">
-          <button onclick="sendEmail()" class="cta-btn btn-email">
-            <img src="iconemail.png" alt=""> Kirim via Email
+          <button onclick="sendViaInstagram()" class="cta-btn btn-wa">
+            <img src="iconinstagram.png" alt=""> Kirim via Instagram
           </button>
         </div>
       </div>
@@ -2092,6 +2066,13 @@ a { text-decoration: none; }
           <div class="info-txt">
             <h4>Lokasi</h4>
             <p>Sulawesi Selatan, Indonesia</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-ico">📷</span>
+          <div class="info-txt">
+            <h4>Instagram</h4>
+            <p>@rhmtmuhmmdd</p>
           </div>
         </div>
         <div class="map-ph">🗺️ Lokasi di Peta — Indonesia</div>
@@ -2157,8 +2138,8 @@ Dipilih dengan teliti, murni secara alami, dan siap dipesan.</p>
           <p class="prod-price">Rp 50.000</p>
           <p class="prod-desc">Madu hutan asli, dipanen langsung dari hutan Desa Patanyamang.
 Murni tanpa campuran, praktis untuk konsumsi harian.</p>
-          <a href="#"
-             target="_blank" rel="noopener" class="order-btn">💬 Order via WhatsApp</a>
+          <a href="https://www.instagram.com/rhmtmuhmmdd"
+             target="_blank" rel="noopener" class="order-btn">💬 Order via Instagram DM</a>
         </div>
       </div>
 
@@ -2172,8 +2153,8 @@ Murni tanpa campuran, praktis untuk konsumsi harian.</p>
           <p class="prod-price">Rp 150.000</p>
           <p class="prod-desc">Madu hutan asli, dipanen langsung dari hutan Desa Patanyamang.
 Murni tanpa campuran, praktis untuk konsumsi harian.</p>
-          <a href="#"
-             target="_blank" rel="noopener" class="order-btn">💬 Order via WhatsApp</a>
+          <a href="https://www.instagram.com/rhmtmuhmmdd"
+             target="_blank" rel="noopener" class="order-btn">💬 Order via Instagram DM</a>
         </div>
       </div>
 
@@ -2187,8 +2168,8 @@ Murni tanpa campuran, praktis untuk konsumsi harian.</p>
           <p class="prod-price">Rp 250.000</p>
           <p class="prod-desc">Dua botol madu hutan asli dari Desa Patanyamang.
 Lebih hemat untuk stok keluarga (harga normal Rp 300.000).</p>
-          <a href="#"
-             target="_blank" rel="noopener" class="order-btn">💬 Order via WhatsApp</a>
+          <a href="https://www.instagram.com/rhmtmuhmmdd"
+             target="_blank" rel="noopener" class="order-btn">💬 Order via Instagram DM</a>
         </div>
       </div>
 
@@ -2233,44 +2214,31 @@ Lebih hemat untuk stok keluarga (harga normal Rp 300.000).</p>
 
   <!-- ===== GALLERY 2 SECTION ===== -->
   <section id="section-gallery2" class="page">
-    <div class="gallery2-hero">
-      <span class="eyebrow">Koleksi Foto</span>
-      <h2>Gallery 2</h2>
-      <p>Jelajahi momen-momen tak terlupakan dari setiap destinasi. Klik nama destinasi untuk melihat galeri fotonya.</p>
+
+    <div class="g2-hero">
+      <p class="g2-eyebrow">Koleksi Momen</p>
+      <h2 class="g2-headline">Galeri Kedua</h2>
+      <p class="g2-sub">Pilih salah satu destinasi di bawah untuk melihat sisi lain dari setiap perjalanan.</p>
     </div>
 
-    <!-- Destination Buttons -->
-    <div class="gallery2-dest-grid" id="gallery2-dest-grid">
-      <!-- Rendered by JS -->
+    <div class="g2-grid-wrap">
+      <div class="g2-grid" id="g2-grid"><!-- diisi otomatis lewat JavaScript --></div>
     </div>
 
-    <!-- Gallery Viewer Panel -->
-    <div class="gallery2-viewer" id="gallery2-viewer">
-      <div class="g2-viewer-inner">
-        <div class="g2-viewer-header">
-          <h3 class="g2-viewer-title" id="g2-viewer-title">Destinasi</h3>
-          <button class="g2-viewer-close" onclick="closeGallery2Viewer()">Tutup ✕</button>
+    <!-- 3D Photo Viewer -->
+    <div class="g2-viewer" id="g2-viewer" onclick="closeGallery2Viewer(event)">
+      <div class="g2-viewer-card">
+        <button class="g2-viewer-close" onclick="closeGallery2Viewer(event)" aria-label="Tutup">&times;</button>
+        <div class="g2-viewer-photo-wrap">
+          <img class="g2-viewer-photo" id="g2-viewer-photo" src="" alt="">
         </div>
-        <div class="g2-viewer-body">
-          <div class="g2-main-img-wrap">
-            <img class="g2-main-img" id="g2-main-img" src="" alt="Gallery photo" onclick="openLightbox(this.src)">
-            <button class="g2-viewer-nav prev" onclick="gallery2Nav(-1)" aria-label="Foto sebelumnya">&#8249;</button>
-            <button class="g2-viewer-nav next" onclick="gallery2Nav(1)" aria-label="Foto berikutnya">&#8250;</button>
-            <span class="g2-viewer-counter" id="g2-viewer-counter">1 / 4</span>
-          </div>
-          <div class="g2-thumbs-row" id="g2-thumbs-row">
-            <!-- Thumbnails rendered by JS -->
-          </div>
-          <div class="g2-viewer-info" id="g2-viewer-info">
-            <!-- Info rendered by JS -->
-          </div>
+        <div class="g2-viewer-info">
+          <p class="g2-viewer-name" id="g2-viewer-name"></p>
+          <p class="g2-viewer-loc" id="g2-viewer-loc"></p>
         </div>
       </div>
     </div>
 
-    <div class="gallery2-empty" id="gallery2-empty" style="display:none;">
-      <p>Pilih destinasi di atas untuk melihat galeri foto.</p>
-    </div>
   </section><!-- /#section-gallery2 -->
 
   <!-- FOOTER inside app -->
@@ -2288,7 +2256,7 @@ Lebih hemat untuk stok keluarga (harga normal Rp 300.000).</p>
 <script>
 /* ==============================================
    MOUNTAIN DATA
-   ==============================================
+   =============================================
    Untuk tambah gunung baru: tambahkan satu object baru
    di array ini mengikuti format yang sama.
    Untuk tambah foto: tambahkan nama file di array photos[].
@@ -2345,8 +2313,8 @@ var mountains = [
     year:      '2025',
     cover:     'lohe.jpg',
     photos:    ['lohe01.jpg','lohe02.jpg','lohe03.jpg','lohe04.jpg'],
-    story:     'Lembah Lohe adalah destinasi alam dan area camping populer di Kabupaten Gowa, Sulawesi Selatan, yang berada di antara Gunung Bawakaraeng dan Gunung Lompobattang. Dijuluki "Negeri Dongeng Sulawesi", lembah ini menawarkan suasana asri dengan sungai jernih, pepohonan rindang, udara sejuk, serta kabut tipis yang sering turun dan menciptakan nuansa magis untuk berkemah santai.',
-    highlights:['Into the Mist','Riverside Retreat','Nature's Hidden Haven'],
+    story:     'Lembah Lohe adalah destinasi alam dan area camping populer di Kabupaten Gowa, Sulawesi Selatan, yang berada di antara Gunung Bawakaraeng dan Gunung Lompobattang. Dijuluki “Negeri Dongeng Sulawesi”, lembah ini menawarkan suasana asri dengan sungai jernih, pepohonan rindang, udara sejuk, serta kabut tipis yang sering turun dan menciptakan nuansa magis untuk berkemah santai.',
+    highlights:['Into the Mist','Riverside Retreat','Nature’s Hidden Haven'],
     maps:      'https://www.google.com/maps/search/Lembah+Lohe+Gowa+Sulawesi+Selatan'
   },
   {
@@ -2426,7 +2394,7 @@ var mountains = [
     highlights:['Panoramic Hilltop Views','Paragliding Paradise','Sunrise & Sunset Spot'],
     maps:      'https://www.google.com/maps/search/Bukit+Maddo+Barru+Sulawesi+Selatan'
   },
-  {
+   {
     name:      'Banda Neira',
     location:  'Maluku Tengah, Maluku',
     elevation:'-',
@@ -2434,7 +2402,7 @@ var mountains = [
     cover:     'banda.jpg',
     photos:    ['banda01.jpg','banda02.jpg','banda3.jpg','banda04.jpg'],
     story:     'Banda Neira adalah pulau bersejarah di Kepulauan Banda, Maluku Tengah, yang terkenal sebagai pusat perdagangan pala dunia pada abad ke-16-17 dan tempat pengasingan Bung Hatta serta Sutan Sjahrir. Pulau ini menawarkan perpaduan wisata sejarah, keindahan bawah laut, dan pemandangan Gunung Api Banda.',
-    highlights:['Historical Island','Underwater Beauty','Volcano View'],
+    highlights:['Panoramic Hilltop Views','Paragliding Paradise','Sunrise & Sunset Spot'],
     maps:      'https://www.google.com/maps/search/Banda+Neira+Maluku+Tengah'
   },
   {
@@ -2488,65 +2456,31 @@ var mountains = [
     year:      '2026',
     cover:     'bahonglangi.jpg',
     photos:    ['bahonglangi01.jpg','bahonglangi02.jpg','bahonglangi03.jpg','bahonglangi04.jpg'],
-    story:     'MT Bahonglangi, yang dijuluki "Atap Bone", merupakan puncak tertinggi di Kabupaten Bone, Sulawesi Selatan, dengan ketinggian 1.988 mdpl. Terletak di Desa Bontojai, Kecamatan Bontocani, gunung ini berada di perbatasan Bone, Gowa, dan Sinjai. Nama "Bahong Langi" sendiri berasal dari bahasa Konjo yang berarti puncak langit, menggambarkan keindahan panorama dari ketinggiannya.',
+    story:     'MT Bahonglangi, yang dijuluki “Atap Bone”, merupakan puncak tertinggi di Kabupaten Bone, Sulawesi Selatan, dengan ketinggian 1.988 mdpl. Terletak di Desa Bontojai, Kecamatan Bontocani, gunung ini berada di perbatasan Bone, Gowa, dan Sinjai. Nama “Bahong Langi” sendiri berasal dari bahasa Konjo yang berarti puncak langit, menggambarkan keindahan panorama dari ketinggiannya.',
     highlights:['The Roof of Bone','Borderline Summit Peak','Sky-High Panorama'],
     maps:      'https://www.google.com/maps/search/Gunung+Bahonglangi+Bone+Sulawesi+Selatan'
-  },
-  {
-    name:      'MT.Lompobattang (Comingsoon)',
-    location:  'Jeneponto, Sulawesi Selatan',
-    elevation: '2.870 mdpl',
-    year:      '2026',
-    cover:     'lompobattang.jpg',
-    photos:    ['lompobattang01.jpg','lompobattang02.jpg','lompobattang03.jpg','lompobattang04.jpg'],
-    story:     'Gunung Lompobattang, yang dijuluki gunung terekstrem , memiliki ketinggian sekitar 2.870 mdpl dan menjadi salah satu destinasi pendakian populer di Sulawesi Selatan. Gunung ini dikenal dengan tebing-tebing curam, jalur yang menantang, serta panorama alam pegunungan yang memukau dari puncaknya.',
-    highlights:['Ekstrem mountain','Cliffside Mountain Views','Challenging Summit Trail'],
-    maps:      'https://www.google.com/maps/search/Moncong+lompobattang'
-  },
-  /* ===== DESTINASI BARU TAHUN 2026 ===== */
-  {
-    name:      'Puncak Talung',
-    location:  'Gowa, Sulawesi Selatan',
-    elevation: '1.706 mdpl',
-    year:      '2026',
-    cover:     'puncaktalung2026.jpg',
-    photos:    ['galeripuncaktalung01.jpg','galeripuncaktalung02.jpg','galeripuncaktalung03.jpg','galeripuncaktalung04.jpg'],
-    story:     'Kunjungan kedua ke Puncak Talung pada tahun 2026. Jalur yang semakin familiar namun tetap memberikan tantangan dan pemandangan yang berbeda setiap musim. Kabut pagi dan suara alam yang semakin hidup menjadi pengalaman yang tak terlupakan.',
-    highlights:['Return Expedition','Seasonal Changes','Morning Mist'],
-    maps:      'https://www.google.com/maps/search/Puncak+Talung+Gowa+Sulawesi+Selatan'
-  },
-  {
-    name:      'Lembah Ramma',
-    location:  'Gowa, Sulawesi Selatan',
-    elevation: '1.609 mdpl',
-    year:      '2026',
-    cover:     'lembahramma2026.jpg',
-    photos:    ['galerilembahramma01.jpg','galerilembahramma02.jpg','galerilembahramma03.jpg','galerilembahramma04.jpg'],
-    story:     'Kembali ke Lembah Ramma di tahun 2026. Padang rumput yang semakin hijau dan suasana yang semakin asri membuat setiap langkah terasa seperti pertama kali. Sunrise dari lembah ini selalu punya cara berbeda untuk menyapa.',
-    highlights:['Green Valley Return','Fresh Sunrise','Pine Forest Walk'],
-    maps:      'https://www.google.com/maps/search/Lembah+Ramma+Gowa+Sulawesi+Selatan'
-  },
-  {
-    name:      'Danau Slank Pt3',
-    location:  'Gowa, Sulawesi Selatan',
-    elevation: '1.376 mdpl',
-    year:      '2026',
-    cover:     'danauslankpt3.jpg',
-    photos:    ['galeridanauslankpt301.jpg','galeridanauslankpt302.jpg','galeridanauslankpt303.jpg','galeridanauslankpt304.jpg'],
-    story:     'Part ketiga dari eksplorasi Danau Slank. Spot camping yang semakin nyaman dengan pemandangan danau yang tenang dan jernih. Suasana malam di sini begitu sepi, hanya suara angin dan air yang menemani.',
-    highlights:['Part 3 Exploration','Crystal Clear Lake','Silent Night Camp'],
-    maps:      'https://www.google.com/maps/search/Danau+Slank+Lembah+Ramma+Gowa'
   },
   {
     name:      'MT. Lompobattang',
     location:  'Jeneponto, Sulawesi Selatan',
     elevation: '2.874 mdpl',
     year:      '2026',
-    cover:     'lompobattang2026.jpg',
-    photos:    ['galerilompobattang01.jpg','galerilompobattang02.jpg','galerilompobattang03.jpg','galerilompobattang04.jpg'],
-    story:     'Gunung Lompobattang dengan ketinggian 2.874 mdpl merupakan salah satu gunung paling ekstrem di Sulawesi Selatan. Tebing curam, jalur menantang, dan panorama pegunungan yang memukau dari puncaknya menjadikan setiap pendakian pengalaman yang tak terlupakan.',
-    highlights:['Extreme Mountain','Cliffside Views','Summit Challenge'],
+    cover:     'lompobattang.jpg',
+    photos:    ['lompobattang01.jpg','lompobattang02.jpg','lompobattang03.jpg','lompobattang04.jpg'],
+    story:     'Gunung Lompobattang, yang dijuluki gunung terekstrem, memiliki ketinggian sekitar 2.874 mdpl dan menjadi salah satu destinasi pendakian populer di Sulawesi Selatan. Gunung ini dikenal dengan tebing-tebing curam, jalur yang menantang, serta panorama alam pegunungan yang memukau dari puncaknya.',
+    highlights:['Ekstrem mountain','Cliffside Mountain Views','Challenging Summit Trail'],
     maps:      'https://www.google.com/maps/search/Moncong+lompobattang'
+  },
+  {
+    name:      'Puncak Talung - Lembah Ramma - Danau Slank Pt3',
+    location:  'Gowa, Sulawesi Selatan',
+    elevation: '1.706 mdpl',
+    year:      '2026',
+    cover:     'talungrammaslankpt3.jpg',
+    photos:    ['talungrammaslankpt301.jpg','talungrammaslankpt302.jpg','talungrammaslankpt303.jpg','talungrammaslankpt304.jpg'],
+    story:     'Kembali untuk ketiga kalinya menyusuri rute favorit ini: Puncak Talung, Lembah Ramma, hingga Danau Slank dalam satu perjalanan. Rute yang sama, namun selalu punya cerita dan suasana baru setiap kali disambangi — mulai dari padang rumput luas Lembah Ramma, tebing dan jalur teknikal menuju Puncak Talung, hingga suasana tenang di tepi Danau Slank.',
+    highlights:['Rute 3-in-1 favorit','Padang rumput Lembah Ramma','Ketenangan Danau Slank'],
+    maps:      'https://www.google.com/maps/search/Lembah+Ramma+Gowa+Sulawesi+Selatan'
   }
 ];
 
@@ -2559,16 +2493,11 @@ var currentSection = 'home';
 var currentGalleryPhotos = [];
 var currentGalleryIdx = 0;
 
-/* Gallery 2 State */
-var g2CurrentPhotos = [];
-var g2CurrentIdx = 0;
-var g2ActiveDest = null;
-
 /* ==============================================
    INIT
    ============================================== */
 document.addEventListener('DOMContentLoaded', function() {
-  renderGallery2Buttons();
+  // Cards rendered on year selection
 });
 
 /* ==============================================
@@ -2629,10 +2558,11 @@ function goHome() {
 
   appEntered = false;
 
-  // Stop all music
+  // Stop music
   var audio = document.getElementById('bg-audio');
   audio.pause();
   audio.currentTime = 0;
+
   var g2Audio = document.getElementById('gallery2-audio');
   if (g2Audio) { g2Audio.pause(); g2Audio.currentTime = 0; }
 
@@ -2671,25 +2601,6 @@ function navigateTo(sectionId) {
 }
 
 function setActiveSection(sectionId, skipScroll) {
-  // Handle Gallery 2 music
-  var g2Audio = document.getElementById('gallery2-audio');
-  var mainAudio = document.getElementById('bg-audio');
-
-  if (sectionId === 'gallery2') {
-    // Pause main audio, play gallery2 audio
-    if (mainAudio) { mainAudio.pause(); }
-    if (g2Audio) {
-      g2Audio.volume = 0.45;
-      g2Audio.play().catch(function(){});
-    }
-  } else {
-    // Pause gallery2 audio, resume main audio if app active
-    if (g2Audio) { g2Audio.pause(); g2Audio.currentTime = 0; }
-    if (mainAudio && appEntered) {
-      mainAudio.play().catch(function(){});
-    }
-  }
-
   // Hide all sections
   document.querySelectorAll('#main-app .page').forEach(function(p) {
     p.classList.remove('active');
@@ -2948,132 +2859,95 @@ function handleLightboxClick(e) {
 /* ==============================================
    CONTACT FUNCTIONS
    ============================================== */
-function sendEmail() {
-  var name    = document.getElementById('c-name').value.trim();
-  var subject = document.getElementById('c-subject').value.trim() || 'Pesan dari Website rhmtmuhmmdd';
-  var message = document.getElementById('c-message').value.trim();
-
-  var body = 'Halo,\n\n';
-  if (name) body += 'Nama saya ' + name + '.\n\n';
-  if (message) body += message + '\n\n';
-  body += 'Salam,\n' + (name || 'Pengunjung');
-
-  var mailto = 'mailto:'
-    + '?subject=' + encodeURIComponent(subject)
-    + '&body='    + encodeURIComponent(body);
-
-  window.location.href = mailto;
+function sendViaInstagram() {
+  // Demi privasi, kontak langsung (email/nomor telepon) dihapus.
+  // Pesan diarahkan lewat DM Instagram.
+  window.open('https://www.instagram.com/rhmtmuhmmdd', '_blank');
 }
 
 /* ==============================================
-   GALLERY 2 — FUNCTIONS
+   GALLERY 2 — DESTINATION BUTTON GRID + 3D VIEWER
+   ==============================================
+   Setiap destinasi otomatis mendapat 1 tombol.
+   Nama file foto galeri kedua dibentuk otomatis dari
+   nama file "cover" destinasi tersebut, dengan format:
+   "galeri" + <nama cover tanpa ekstensi> + "pt2.jpg"
+   Contoh: cover 'bawakaraeng.jpg' -> 'galeribawakaraengpt2.jpg'
+   Untuk mengganti foto galeri kedua suatu destinasi,
+   cukup upload foto dengan nama file sesuai pola di atas.
    ============================================== */
-function renderGallery2Buttons() {
-  var grid = document.getElementById('gallery2-dest-grid');
-  if (!grid) return;
+var g2GridBuilt = false;
+
+function gallery2PhotoFor(mountain) {
+  var base = mountain.cover.replace(/\.[a-zA-Z0-9]+$/, '');
+  return 'galeri' + base + 'pt2.jpg';
+}
+
+function buildGallery2Grid() {
+  var grid = document.getElementById('g2-grid');
+  if (!grid || g2GridBuilt) return;
   grid.innerHTML = '';
 
-  mountains.forEach(function(mt, idx) {
+  var list = mountains.filter(function(m) {
+    return m.name.indexOf('Comingsoon') === -1;
+  });
+
+  list.forEach(function(m) {
     var btn = document.createElement('button');
-    btn.className = 'g2-dest-btn';
-    btn.setAttribute('data-idx', idx);
-    btn.innerHTML = '<span>' + mt.name + '</span>';
-    btn.onclick = function() { openGallery2Viewer(idx); };
+    btn.className = 'g2-btn';
+    btn.innerHTML =
+      '<span class="g2-btn-icon">📷</span>' +
+      '<span class="g2-btn-name">' + m.name + '</span>' +
+      '<span class="g2-btn-loc">' + m.location + '</span>';
+    btn.onclick = function() { openGallery2Viewer(m); };
     grid.appendChild(btn);
   });
+
+  g2GridBuilt = true;
 }
 
-function openGallery2Viewer(idx) {
-  var mt = mountains[idx];
-  if (!mt) return;
+function openGallery2Viewer(mountain) {
+  var viewer = document.getElementById('g2-viewer');
+  var img    = document.getElementById('g2-viewer-photo');
+  var name   = document.getElementById('g2-viewer-name');
+  var loc    = document.getElementById('g2-viewer-loc');
 
-  g2ActiveDest = idx;
-  g2CurrentPhotos = mt.photos;
-  g2CurrentIdx = 0;
+  img.src   = gallery2PhotoFor(mountain);
+  img.alt   = mountain.name;
+  name.textContent = mountain.name;
+  loc.textContent  = mountain.location;
 
-  // Update active button state
-  document.querySelectorAll('.g2-dest-btn').forEach(function(btn) {
-    btn.classList.remove('active');
-  });
-  var activeBtn = document.querySelector('.g2-dest-btn[data-idx="' + idx + '"]');
-  if (activeBtn) activeBtn.classList.add('active');
-
-  // Show viewer
-  var viewer = document.getElementById('gallery2-viewer');
   viewer.classList.add('show');
-
-  // Set title
-  document.getElementById('g2-viewer-title').textContent = mt.name;
-
-  // Update main image
-  updateGallery2Image();
-
-  // Render thumbs
-  renderGallery2Thumbs();
-
-  // Set info
-  document.getElementById('g2-viewer-info').innerHTML =
-    '<h4>' + mt.name + '</h4>' +
-    '<p>📍 ' + mt.location + ' &nbsp;|&nbsp; ⛰️ ' + mt.elevation + ' &nbsp;|&nbsp; 📅 ' + mt.year + '</p>';
-
-  // Scroll to viewer
-  setTimeout(function() {
-    viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 100);
 }
 
-function closeGallery2Viewer() {
-  document.getElementById('gallery2-viewer').classList.remove('show');
-  document.querySelectorAll('.g2-dest-btn').forEach(function(btn) {
-    btn.classList.remove('active');
-  });
-  g2ActiveDest = null;
+function closeGallery2Viewer(e) {
+  // Tutup hanya jika klik di luar kartu, atau lewat tombol close
+  if (e && e.target.closest && e.target.closest('.g2-viewer-card') && !e.target.closest('.g2-viewer-close')) {
+    return;
+  }
+  document.getElementById('g2-viewer').classList.remove('show');
 }
 
-function updateGallery2Image() {
-  var photos = g2CurrentPhotos;
-  if (!photos || photos.length === 0) return;
+/* Musik Galeri Kedua — otomatis ganti saat menu dibuka/ditutup */
+function enterGallery2Music() {
+  var mainAudio = document.getElementById('bg-audio');
+  if (mainAudio) { mainAudio.pause(); }
 
-  var imgEl = document.getElementById('g2-main-img');
-  var counter = document.getElementById('g2-viewer-counter');
-
-  imgEl.classList.add('fading');
-  setTimeout(function() {
-    imgEl.src = photos[g2CurrentIdx];
-    imgEl.alt = 'Gallery photo ' + (g2CurrentIdx + 1) + ' of ' + photos.length;
-    imgEl.classList.remove('fading');
-  }, 240);
-
-  counter.textContent = (g2CurrentIdx + 1) + ' / ' + photos.length;
-
-  // Update thumbs
-  document.querySelectorAll('.g2-thumb').forEach(function(t, i) {
-    t.classList.toggle('active', i === g2CurrentIdx);
-  });
+  var g2Audio = document.getElementById('gallery2-audio');
+  if (g2Audio) {
+    g2Audio.volume = 0.45;
+    g2Audio.play().catch(function(){});
+  }
 }
 
-function renderGallery2Thumbs() {
-  var row = document.getElementById('g2-thumbs-row');
-  if (!row) return;
-  row.innerHTML = '';
+function exitGallery2Music() {
+  var g2Audio = document.getElementById('gallery2-audio');
+  if (g2Audio) { g2Audio.pause(); g2Audio.currentTime = 0; }
 
-  g2CurrentPhotos.forEach(function(photo, i) {
-    var thumb = document.createElement('div');
-    thumb.className = 'g2-thumb' + (i === 0 ? ' active' : '');
-    thumb.innerHTML = '<img src="' + photo + '" alt="Thumbnail ' + (i + 1) + '" loading="lazy">';
-    thumb.onclick = function() {
-      g2CurrentIdx = i;
-      updateGallery2Image();
-    };
-    row.appendChild(thumb);
-  });
-}
-
-function gallery2Nav(dir) {
-  var len = g2CurrentPhotos.length;
-  if (len === 0) return;
-  g2CurrentIdx = ((g2CurrentIdx + dir) % len + len) % len;
-  updateGallery2Image();
+  var mainAudio = document.getElementById('bg-audio');
+  if (mainAudio && appEntered) {
+    mainAudio.play().catch(function(){});
+  }
 }
 
 /* ==============================================
@@ -3196,13 +3070,32 @@ function gallery2Nav(dir) {
   draw();
 })();
 
+/* ==============================================
+   Auto switch music when entering/leaving Gallery 2
+   ============================================== */
+var _origSetActiveSection = setActiveSection;
+setActiveSection = function(sectionId, skipScroll) {
+  var wasGallery2 = (currentSection === 'gallery2');
+  var goingToGallery2 = (sectionId === 'gallery2');
+
+  if (goingToGallery2 && !wasGallery2) {
+    buildGallery2Grid();
+    enterGallery2Music();
+  } else if (!goingToGallery2 && wasGallery2) {
+    document.getElementById('g2-viewer').classList.remove('show');
+    exitGallery2Music();
+  }
+
+  _origSetActiveSection(sectionId, skipScroll);
+};
+
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
     closeSidebar();
     closeLightbox();
-    closeGallery2Viewer();
   }
 });
 </script>
 </body>
 </html>
+
